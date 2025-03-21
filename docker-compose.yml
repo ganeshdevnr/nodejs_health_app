@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./dockerfiles/Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./app:/app # Mount the current directory into /app inside the container
+      - /app/node_modules # Prevent overwriting node_modules inside the container
+    environment:
+      - NODE_ENV=development
+    working_dir: /app
+    command: ["npm", "run", "start"] # Adjust based on your dev command
