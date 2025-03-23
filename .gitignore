@@ -1,2 +1,6 @@
 node_modules
 *-lock.json
+
+# ignore database file systems
+pgdata
+pgdata-prod
